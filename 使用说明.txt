@@ -1,0 +1,51 @@
+# 女朋友礼物网页 - 使用说明
+
+## 文件结构
+```
+girlfriend-gift/
+├── index.html          # 首页（从这里开始）
+├── question2.html      # 火锅辣度问题
+├── question3.html      # 奶茶甜度问题
+├── question4.html      # 想念测试问题
+├── contact.html        # 许愿表单
+├── final.html          # 完成页面
+├── img/                # 图片文件夹
+│   ├── ahatamatar.gif
+│   ├── hamster.jpg
+│   ├── sleep.webp
+│   ├── gift1.webp
+│   └── gift2.png
+└── music/              # 音乐文件夹
+    └── date.mp3        # 黄昏之时
+```
+
+## 本地使用方法
+
+### 方式1：直接打开（最简单）
+1. 解压文件，保持文件夹结构完整
+2. 双击 `index.html`
+3. 如果提示"是否允许打开本地文件"，请点击允许
+
+### 方式2：本地服务器（推荐）
+如果你有 Python：
+```bash
+cd girlfriend-gift
+python -m http.server 8000
+```
+然后浏览器访问 `http://localhost:8000`
+
+## 页面流程
+1. index.html - 首页："今天想我了没？"
+2. question2.html - 火锅辣度（点微辣会让特辣按钮变大）
+3. question3.html - 奶茶甜度（点少糖会让全糖按钮变大）
+4. question4.html - 想念测试（点你想我更多会让另一个按钮变大）
+5. contact.html - 许愿表单
+6. final.html - 完成页面
+
+## 音乐播放
+- 点击"播放音乐"按钮才会播放（浏览器安全限制，无法自动播放）
+
+## 部署到线上
+推荐 Vercel：
+1. 把整个文件夹拖到 <https://vercel.com>
+2. 自动获得 `xxx.vercel.app` 链接

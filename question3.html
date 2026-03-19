@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>给你的小惊喜 💝</title>
+  <link href="https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Noto Sans SC', sans-serif;
+      background: linear-gradient(135deg, #ffeef8 0%, #e8f4f8 50%, #fff5f5 100%);
+      background-size: 400% 400%;
+      animation: gradientShift 15s ease infinite;
+      min-height: 100vh;
+      color: #5a5a5a;
+      text-align: center;
+      padding: 40px 20px;
+      overflow-x: hidden;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .floating-hearts {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .heart {
+      position: absolute;
+      font-size: 20px;
+      opacity: 0.3;
+      animation: floatHeart 8s ease-in-out infinite;
+    }
+
+    @keyframes floatHeart {
+      0%, 100% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+      10% { opacity: 0.3; }
+      90% { opacity: 0.3; }
+      100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .progress {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 30px;
+    }
+
+    .progress-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: rgba(255, 143, 171, 0.3);
+    }
+
+    .progress-dot.active {
+      background: #ff8fab;
+      transform: scale(1.2);
+    }
+
+    h1 {
+      font-family: 'ZCOOL KuaiLe', cursive;
+      font-size: 2.5em;
+      background: linear-gradient(135deg, #ff8fab 0%, #b5b9ff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 30px;
+    }
+
+    .image-container {
+      margin: 30px 0;
+    }
+
+    .main-image {
+      width: 180px;
+      height: 180px;
+      border-radius: 20px;
+      object-fit: cover;
+      border: 4px solid rgba(255, 255, 255, 0.8);
+      box-shadow: 0 10px 40px rgba(255, 143, 171, 0.3);
+    }
+
+    .question {
+      margin: 35px 0;
+      font-size: 1.4em;
+      color: #6b6b6b;
+      font-weight: 500;
+    }
+
+    .question-number {
+      display: inline-block;
+      background: linear-gradient(135deg, #ff8fab 0%, #ffc2d1 100%);
+      color: white;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      line-height: 30px;
+      font-size: 0.8em;
+      margin-right: 10px;
+    }
+
+    .button-container {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin: 30px 0;
+      flex-wrap: wrap;
+    }
+
+    .button {
+      padding: 15px 35px;
+      background: linear-gradient(135deg, #ff8fab 0%, #ffc2d1 100%);
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 25px;
+      font-family: 'Noto Sans SC', sans-serif;
+      font-size: 1.1em;
+      font-weight: 500;
+      box-shadow: 0 4px 15px rgba(255, 143, 171, 0.4);
+      transition: all 0.3s ease;
+      min-width: 140px;
+    }
+
+    .button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(255, 143, 171, 0.5);
+    }
+
+    .button.no {
+      background: linear-gradient(135deg, #a8d8ea 0%, #d4e5ed 100%);
+      box-shadow: 0 4px 15px rgba(168, 216, 234, 0.4);
+    }
+
+    .button.no:hover {
+      box-shadow: 0 8px 25px rgba(168, 216, 234, 0.5);
+    }
+
+    .cute-icon {
+      font-size: 2em;
+      margin: 20px 0;
+      animation: wiggle 2s ease-in-out infinite;
+    }
+
+    @keyframes wiggle {
+      0%, 100% { transform: rotate(-3deg); }
+      50% { transform: rotate(3deg); }
+    }
+
+    @media (max-width: 480px) {
+      h1 { font-size: 2em; }
+      .question { font-size: 1.2em; }
+      .button { padding: 12px 25px; font-size: 1em; min-width: 120px; }
+      .main-image { width: 150px; height: 150px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="floating-hearts">
+    <span class="heart" style="left: 10%; animation-delay: 0s;">🧋</span>
+    <span class="heart" style="left: 30%; animation-delay: 2s;">🍬</span>
+    <span class="heart" style="left: 50%; animation-delay: 4s;">🧋</span>
+    <span class="heart" style="left: 70%; animation-delay: 1s;">🍭</span>
+    <span class="heart" style="left: 90%; animation-delay: 3s;">🧋</span>
+  </div>
+
+  <div class="container">
+    <div class="progress">
+      <div class="progress-dot active"></div>
+      <div class="progress-dot active"></div>
+      <div class="progress-dot"></div>
+    </div>
+
+    <h1>奶茶时间 🧋</h1>
+    
+    <div class="image-container">
+      <img src="./img/hamster.jpg" alt="奶茶" class="main-image">
+    </div>
+
+    <div class="question">
+      <p><span class="question-number">2</span>请你喝奶茶，你要几分糖？🍬</p>
+    </div>
+
+    <div class="button-container">
+      <button class="button yes" id="yes-btn" onclick="nextQuestion('yes')">🍭 全糖！</button>
+      <button class="button no" onclick="nextQuestion('no')">少糖吧～</button>
+    </div>
+
+    <div class="cute-icon">🍯</div>
+  </div>
+
+  <!-- 音乐播放 -->
+  <audio id="music" loop>
+    <source src="./music/summer.mp3" type="audio/mp3">
+  </audio>
+
+  <script>
+    const music = document.getElementById("music");
+    
+    // 页面加载时：恢复播放状态
+    window.addEventListener('load', () => {
+      const wasPlaying = localStorage.getItem('musicPlaying') === 'true';
+      const currentTime = parseFloat(localStorage.getItem('musicTime') || '0');
+      
+      if (wasPlaying) {
+        music.currentTime = currentTime;
+        music.play().catch(() => {});
+      }
+    });
+    
+    // 页面跳转前：保存播放状态
+    window.addEventListener('beforeunload', () => {
+      localStorage.setItem('musicPlaying', !music.paused);
+      localStorage.setItem('musicTime', music.currentTime);
+    });
+
+    let yesSize = 1;
+    let yesPadding = 15;
+    
+    function nextQuestion(answer) {
+      // 保存当前播放状态
+      localStorage.setItem('musicPlaying', !music.paused);
+      localStorage.setItem('musicTime', music.currentTime);
+      
+      if (answer === 'yes') {
+        document.body.style.opacity = '0';
+        document.body.style.transition = 'opacity 0.5s';
+        setTimeout(() => {
+          window.location.href = 'question4.html';
+        }, 500);
+      } else {
+        // 点少糖，全糖按钮变大
+        yesSize += 0.15;
+        yesPadding += 5;
+        const yesBtn = document.getElementById('yes-btn');
+        yesBtn.style.transform = `scale(${yesSize})`;
+        yesBtn.style.padding = `${yesPadding}px ${yesPadding * 2}px`;
+        
+        // 文字变化
+        const texts = [
+          '🍭 全糖！',
+          '🍭🍭 必须全糖！',
+          '🍭🍭🍭 甜到心里！',
+          '🍭🍭🍭🍭 就要甜甜的！',
+          '🍭🍭🍭🍭🍭 全糖万岁！'
+        ];
+        const index = Math.min(Math.floor((yesSize - 1) / 0.15), texts.length - 1);
+        yesBtn.innerHTML = texts[index];
+        
+        // 按钮晃动提示
+        yesBtn.style.animation = 'wiggle 0.5s ease';
+        setTimeout(() => {
+          yesBtn.style.animation = '';
+        }, 500);
+      }
+    }
+  </script>
+</body>
+</html>

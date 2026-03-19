@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>给你的小惊喜 💝</title>
+  <link href="https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Noto Sans SC', sans-serif;
+      background: linear-gradient(135deg, #ffeef8 0%, #e8f4f8 50%, #fff5f5 100%);
+      background-size: 400% 400%;
+      animation: gradientShift 15s ease infinite;
+      min-height: 100vh;
+      color: #5a5a5a;
+      text-align: center;
+      padding: 40px 20px;
+      overflow-x: hidden;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .floating-hearts {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .heart {
+      position: absolute;
+      font-size: 20px;
+      opacity: 0.3;
+      animation: floatHeart 8s ease-in-out infinite;
+    }
+
+    @keyframes floatHeart {
+      0%, 100% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+      10% { opacity: 0.3; }
+      90% { opacity: 0.3; }
+      100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .progress {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 30px;
+    }
+
+    .progress-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: rgba(255, 143, 171, 0.3);
+    }
+
+    .progress-dot.active {
+      background: #ff8fab;
+      transform: scale(1.2);
+    }
+
+    h1 {
+      font-family: 'ZCOOL KuaiLe', cursive;
+      font-size: 2.2em;
+      background: linear-gradient(135deg, #ff8fab 0%, #b5b9ff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 20px;
+    }
+
+    .subtitle {
+      font-size: 1.1em;
+      color: #888;
+      margin-bottom: 30px;
+    }
+
+    .form-card {
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(10px);
+      border-radius: 25px;
+      padding: 35px;
+      box-shadow: 0 10px 40px rgba(255, 143, 171, 0.2);
+    }
+
+    .form-group {
+      margin-bottom: 25px;
+      text-align: left;
+    }
+
+    label {
+      display: block;
+      font-weight: 500;
+      margin-bottom: 10px;
+      color: #666;
+      font-size: 1em;
+    }
+
+    input[type="text"], textarea {
+      width: 100%;
+      padding: 15px;
+      border: 2px solid rgba(255, 143, 171, 0.3);
+      border-radius: 15px;
+      font-size: 1em;
+      font-family: 'Noto Sans SC', sans-serif;
+      background: rgba(255, 255, 255, 0.8);
+      transition: all 0.3s ease;
+      color: #555;
+    }
+
+    input[type="text"]:focus, textarea:focus {
+      outline: none;
+      border-color: #ff8fab;
+      box-shadow: 0 0 0 4px rgba(255, 143, 171, 0.1);
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 16px;
+      background: linear-gradient(135deg, #ff8fab 0%, #ffc2d1 100%);
+      color: white;
+      border: none;
+      border-radius: 25px;
+      font-size: 1.1em;
+      font-weight: 500;
+      font-family: 'Noto Sans SC', sans-serif;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(255, 143, 171, 0.4);
+      transition: all 0.3s ease;
+    }
+
+    .submit-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(255, 143, 171, 0.5);
+    }
+
+    .cute-icon {
+      font-size: 3em;
+      margin: 20px 0;
+    }
+
+    .hint {
+      font-size: 0.9em;
+      color: #999;
+      margin-top: 15px;
+    }
+
+    @media (max-width: 480px) {
+      h1 { font-size: 1.8em; }
+      .form-card { padding: 25px; }
+      .subtitle { font-size: 1em; }
+    }
+  </style>
+</head>
+<body>
+  <div class="floating-hearts">
+    <span class="heart" style="left: 10%; animation-delay: 0s;">🎁</span>
+    <span class="heart" style="left: 30%; animation-delay: 2s;">💝</span>
+    <span class="heart" style="left: 50%; animation-delay: 4s;">🎀</span>
+    <span class="heart" style="left: 70%; animation-delay: 1s;">✨</span>
+    <span class="heart" style="left: 90%; animation-delay: 3s;">💫</span>
+  </div>
+
+  <div class="container">
+    <div class="progress">
+      <div class="progress-dot active"></div>
+      <div class="progress-dot active"></div>
+      <div class="progress-dot active"></div>
+      <div class="progress-dot active"></div>
+    </div>
+
+    <div class="cute-icon">🎁</div>
+
+    <h1>许愿时间 ✨</h1>
+    <p class="subtitle">告诉我你想要什么小惊喜～</p>
+
+    <div class="form-card">
+      <form action="https://formsubmit.co/dumico2318690578@gmail.com" method="POST">
+        <!-- 提交后跳转回 final.html（部署后需要改为实际域名） -->
+        <input type="hidden" name="_next" value="https://dumico.github.io/gift-for-you/final.html">
+        <!-- 禁用验证码（更流畅） -->
+        <input type="hidden" name="_captcha" value="false">
+        <!-- 邮件主题 -->
+        <input type="hidden" name="_subject" value="🎁 收到一个新愿望！">
+        <!-- 自动回复（可选） -->
+        <input type="hidden" name="_autoresponse" value="愿望已收到，会尽快实现哦～">
+        <div class="form-group">
+          <label for="name">怎么称呼你？👤</label>
+          <input type="text" id="name" name="name" placeholder="输入一个可爱的称呼～" required>
+        </div>
+
+        <div class="form-group">
+          <label for="message">想要什么礼物？🎀</label>
+          <textarea id="message" name="message" placeholder="可以是很具体的东西，也可以是一个愿望～&#10;比如：一杯奶茶、一次约会、一个拥抱..." required></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn">提交愿望 💌</button>
+      </form>
+
+      <p class="hint">💡 提示：写什么都会实现哦～</p>
+    </div>
+  </div>
+
+  <!-- 音乐播放 -->
+  <audio id="music" loop>
+    <source src="./music/summer.mp3" type="audio/mp3">
+  </audio>
+
+  <script>
+    const music = document.getElementById("music");
+    
+    // 页面加载时：恢复播放状态
+    window.addEventListener('load', () => {
+      const wasPlaying = localStorage.getItem('musicPlaying') === 'true';
+      const currentTime = parseFloat(localStorage.getItem('musicTime') || '0');
+      
+      if (wasPlaying) {
+        music.currentTime = currentTime;
+        music.play().catch(() => {});
+      }
+    });
+    
+    // 页面跳转前：保存播放状态
+    window.addEventListener('beforeunload', () => {
+      localStorage.setItem('musicPlaying', !music.paused);
+      localStorage.setItem('musicTime', music.currentTime);
+    });
+
+    // 表单提交前保存音乐状态
+    document.querySelector('form').addEventListener('submit', () => {
+      localStorage.setItem('musicPlaying', !music.paused);
+      localStorage.setItem('musicTime', music.currentTime);
+    });
+
+    // 添加淡入动画
+    document.addEventListener('DOMContentLoaded', () => {
+      document.body.style.opacity = '0';
+      document.body.style.transition = 'opacity 0.5s';
+      setTimeout(() => {
+        document.body.style.opacity = '1';
+      }, 100);
+    });
+  </script>
+</body>
+</html>

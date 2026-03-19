@@ -1,0 +1,27 @@
+# GitHub Pages 开启教程
+
+## 步骤
+
+1. 打开仓库设置
+   https://github.com/dumico/gift-for-you/settings
+
+2. 左侧菜单点击 **Pages**
+
+3. Source 选择：
+   - Branch: **main**
+   - Folder: **/ (root)**
+   - 点击 **Save**
+
+4. 等待 1-2 分钟
+
+5. 刷新页面，会看到：
+   "Your site is live at https://dumico.github.io/gift-for-you/"
+
+## 新的访问链接
+https://dumico.github.io/gift-for-you/
+
+## 关于邮件问题
+1. 检查 Gmail 垃圾邮件箱
+2. 搜索 "formsubmit" 或 "Formspree"
+3. 第一次提交需要点击验证链接
+4. 如果还是没收到，告诉我，换其他方案
